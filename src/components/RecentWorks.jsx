@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence, useMotionValueEvent, useScroll } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { projects } from '../projects';
@@ -8,7 +8,15 @@ const works = projects;
 export default function RecentWorks() {
   const sectionRef = useRef(null);
   const [activeIdx, setActiveIdx] = useState(0);
+  const [compact, setCompact] = useState(() => window.matchMedia('(max-width: 800px)').matches);
   const { scrollYProgress } = useScroll({ target: sectionRef, offset: ['start start', 'end end'] });
+
+  useEffect(() => {
+    const query = window.matchMedia('(max-width: 800px)');
+    const update = () => setCompact(query.matches);
+    query.addEventListener('change', update);
+    return () => query.removeEventListener('change', update);
+  }, []);
 
   useMotionValueEvent(scrollYProgress, 'change', progress => {
     setActiveIdx(Math.min(works.length - 1, Math.max(0, Math.round(progress * (works.length - 1)))));
@@ -36,7 +44,7 @@ export default function RecentWorks() {
                     <motion.div
                       key={work.title}
                       initial={false}
-                      animate={{ y: diff * 26, scale: 1 - diff * .045, opacity: 1 - diff * .19, rotateX: diff * 2 }}
+                      animate={{ y: compact ? Math.min(diff, 2) * 10 : diff * 26, scale: 1 - diff * (compact ? .025 : .045), opacity: compact && diff > 2 ? 0 : 1 - diff * .19, rotateX: compact ? 0 : diff * 2 }}
                       transition={{ duration: .62, ease: [.32, .72, 0, 1] }}
                       style={{ zIndex: works.length - diff, transformOrigin: 'top center' }}
                       className="work-card"
@@ -76,6 +84,19 @@ export default function RecentWorks() {
           </div>
           <p className="work-scroll-hint">SCROLL TO EXPLORE <span>↓</span></p>
         </div>
+      </div>
+      <div className="work-mobile-list">
+        <p className="text-sm text-dark-accent font-medium tracking-widest uppercase mb-2">Portfolio</p>
+        <h2>RECENT WORKS</h2>
+        {works.map((work, index) => (
+          <article className="work-mobile-item" key={work.slug}>
+            <img src={work.cover} alt={`${work.title} interface design`} loading="lazy" />
+            <div className="work-mobile-meta"><span>0{index + 1} / 0{works.length}</span><span>{work.category}</span></div>
+            <h3>{work.title}</h3>
+            <p>{work.description}</p>
+            <a href={`${import.meta.env.BASE_URL}?project=${work.slug}`}>View project <ArrowUpRight size={18} aria-hidden="true" /></a>
+          </article>
+        ))}
       </div>
     </section>
   );
