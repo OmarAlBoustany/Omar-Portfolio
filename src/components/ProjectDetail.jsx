@@ -21,12 +21,12 @@ export default function ProjectDetail({ project }) {
   return (
     <div className="project-page">
       <header className="project-nav">
-        <a className="project-brand" href="/">OMAR<span>.</span></a>
-        <a href="/#work"><ArrowLeft size={17} aria-hidden="true" /> All projects</a>
+        <a className="project-brand" href={import.meta.env.BASE_URL}>OMAR<span>.</span></a>
+        <a href={`${import.meta.env.BASE_URL}#work`}><ArrowLeft size={17} aria-hidden="true" /> All projects</a>
       </header>
       <main>
         <section className="project-intro">
-          <a className="project-back" href="/#work"><ArrowLeft size={17} aria-hidden="true" /> BACK TO WORK</a>
+          <a className="project-back" href={`${import.meta.env.BASE_URL}#work`}><ArrowLeft size={17} aria-hidden="true" /> BACK TO WORK</a>
           <p className="project-kicker">SELECTED WORK / {project.category.toUpperCase()}</p>
           <h1>{project.title}<span>.</span></h1>
           <p className="project-summary">{project.description}</p>
@@ -53,7 +53,7 @@ export default function ProjectDetail({ project }) {
             </section>
           ))}
         </div>
-        <div className="project-end"><a href="/#work"><ArrowLeft size={18} aria-hidden="true" /> Back to all projects</a></div>
+        <div className="project-end"><a href={`${import.meta.env.BASE_URL}#work`}><ArrowLeft size={18} aria-hidden="true" /> Back to all projects</a></div>
       </main>
       {zoomed && <div className="project-lightbox" role="dialog" aria-modal="true" aria-label={`${zoomed.title} enlarged`} onClick={() => setZoomed(null)}>
         <button type="button" onClick={() => setZoomed(null)} aria-label="Close image"><X size={26} /></button>
