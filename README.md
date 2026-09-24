@@ -1,6 +1,8 @@
 # Omar Al Boustany — Portfolio
 
-A React and Vite portfolio with project galleries. It is a static website with no backend or environment variables.
+A React and Vite portfolio with project galleries. This static site has no backend or environment variables.
+
+**Live site:** https://omaralboustany.github.io/Omar-Portfolio/
 
 ## Run locally
 
@@ -20,15 +22,9 @@ npm run preview
 
 The production files are generated in `dist/`.
 
-## Deploy from GitHub
+## Publishing
 
-Connect this repository to a static hosting service such as Cloudflare Pages or Netlify. Use:
-
-- Build command: `npm run build`
-- Output/publish directory: `dist`
-- Root directory: repository root
-
-Project pages use the root URL with a query parameter (for example, `/?project=argentum`), so static hosting works without server-side routing.
+GitHub Pages publishes this repository automatically. A push to `main` runs `.github/workflows/deploy.yml`, builds the site, and deploys `dist/`. Check the **Actions** tab for the result. The Vite base path in `vite.config.js` is `/Omar-Portfolio/`; keep it aligned with the repository name. Project pages use a query parameter, such as `/Omar-Portfolio/?project=argentum`.
 
 ## Edit content
 
