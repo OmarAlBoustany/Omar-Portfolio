@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Mail, Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -31,8 +31,8 @@ const Navbar = () => {
             <a href="#contact" className="hover:text-[#00df8f] transition-colors">CONTACT</a>
           </div>
 
-          <a href="#contact" aria-label="Contact Omar" onClick={() => setMenuOpen(false)} className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center hover:border-[#00df8f]/50 transition-colors">
-            <div className="w-2 h-2 rounded-full bg-[#00df8f]"></div>
+          <a href="#contact" aria-label="Contact Omar" onClick={() => setMenuOpen(false)} className="nav-contact w-11 h-11 rounded-full border border-white/10 flex items-center justify-center text-[#00df8f] hover:border-[#00df8f]/50 hover:bg-[#00df8f]/10 transition-colors">
+            <Mail size={19} strokeWidth={1.8} aria-hidden="true" />
           </a>
           <button type="button" className="mobile-menu-toggle md:hidden" aria-label={menuOpen ? 'Close menu' : 'Open menu'} aria-controls="mobile-navigation" aria-expanded={menuOpen} onClick={() => setMenuOpen(open => !open)}>
             {menuOpen ? <X size={23} /> : <Menu size={23} />}
