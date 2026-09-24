@@ -56,6 +56,7 @@ export default function ProjectDetail({ project }) {
         <div className="project-end"><a href={`${import.meta.env.BASE_URL}#work`}><ArrowLeft size={18} aria-hidden="true" /> Back to all projects</a></div>
       </main>
       {zoomed && <div className="project-lightbox" role="dialog" aria-modal="true" aria-label={`${zoomed.title} enlarged`} onClick={() => setZoomed(null)}>
+        <a className="project-lightbox-original" href={zoomed.image} target="_blank" rel="noopener noreferrer" onClick={event => event.stopPropagation()}>Open full image <ArrowUpRight size={16} aria-hidden="true" /></a>
         <button type="button" onClick={() => setZoomed(null)} aria-label="Close image"><X size={26} /></button>
         <img src={zoomed.image} alt={`${project.title}: ${zoomed.title}`} onClick={event => event.stopPropagation()} />
       </div>}
