@@ -1,8 +1,18 @@
 
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Star, Package, Heart } from 'lucide-react';
 
 const Hero = () => {
+  const [canDrag, setCanDrag] = useState(() => window.matchMedia('(min-width: 801px) and (pointer: fine)').matches);
+
+  useEffect(() => {
+    const query = window.matchMedia('(min-width: 801px) and (pointer: fine)');
+    const update = () => setCanDrag(query.matches);
+    query.addEventListener('change', update);
+    return () => query.removeEventListener('change', update);
+  }, []);
+
   return (
     <section
       id="top"
@@ -118,7 +128,7 @@ const Hero = () => {
 
             {/* Interactive ID Card */}
             <motion.div
-              drag
+              drag={canDrag}
               dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
               dragElastic={0.3}
               animate={{
