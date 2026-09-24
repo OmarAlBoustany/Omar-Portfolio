@@ -152,7 +152,7 @@ const Hero = () => {
                   <div className="absolute inset-0 z-20 opacity-20 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.4) 1px, transparent 0)', backgroundSize: '24px 24px' }}></div>
 
                   <img
-                    src="/omar-portrait.png"
+                    src={`${import.meta.env.BASE_URL}omar-portrait.png`}
                     alt="Omar Al Boustany"
                     className="w-full h-full object-contain object-bottom scale-[1.25] origin-bottom pointer-events-none"
                     style={{ objectPosition: 'center bottom' }}
