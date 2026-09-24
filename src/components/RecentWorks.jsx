@@ -67,7 +67,7 @@ export default function RecentWorks() {
                   <h3>{works[activeIdx].title}</h3>
                   <p className="work-description">{works[activeIdx].description}</p>
                   <div className="work-tags">{works[activeIdx].tags.map(tag => <span key={tag}>{tag}</span>)}</div>
-                  <a href={`/?project=${works[activeIdx].slug}`}>
+                  <a href={`${import.meta.env.BASE_URL}?project=${works[activeIdx].slug}`}>
                     View project <span className="work-link-icon"><ArrowUpRight size={17} aria-hidden="true" /></span>
                   </a>
                 </motion.div>
