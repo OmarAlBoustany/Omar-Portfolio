@@ -1,4 +1,6 @@
-export const projects = [
+const portfolioPath = path => `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`;
+
+const projectData = [
   {
     slug: 'argentum', title: 'ARGENTUM', category: 'Jewelry e-commerce', cover: '/argentum.png',
     tags: ['UI/UX', 'E-commerce'],
@@ -66,3 +68,9 @@ export const projects = [
     screens: [{ title: 'Sign-in page', image: '/maassarani.png' }]
   }
 ];
+
+export const projects = projectData.map(project => ({
+  ...project,
+  cover: portfolioPath(project.cover),
+  screens: project.screens.map(screen => ({ ...screen, image: portfolioPath(screen.image) }))
+}));
