@@ -191,6 +191,7 @@
   .hero-stats p { font-size: .65rem; line-height: 1.3; margin-top: 5px; }
   .hero-visual { height: min(102vw, 420px); margin-top: 32px; }
   .hero-card { width: min(74vw, 330px); }
+  .hero-card { cursor: default; touch-action: pan-y; }
   #about { padding-block: 75px; }
   #about .grid { gap: 38px; }
   #about h3 { font-size: clamp(2.1rem, 9vw, 3.2rem); margin-bottom: 22px; }
