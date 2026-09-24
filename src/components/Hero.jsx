@@ -5,7 +5,8 @@ import { ArrowRight, Star, Package, Heart } from 'lucide-react';
 const Hero = () => {
   return (
     <section
-      className="relative min-h-screen pt-32 pb-20 flex flex-col justify-center overflow-hidden bg-[#0d1116]"
+      id="top"
+      className="hero-section relative min-h-screen pt-32 pb-20 flex flex-col justify-center overflow-hidden bg-[#0d1116]"
       style={{
         backgroundImage: `
           linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
@@ -19,8 +20,8 @@ const Hero = () => {
         <h1 className="text-[20vw] font-display font-bold whitespace-nowrap">DESIGN</h1>
       </div>
 
-      <div className="max-w-[1400px] mx-auto px-8 w-full relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="hero-inner max-w-[1400px] mx-auto px-8 w-full relative z-10">
+        <div className="hero-grid grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
           {/* Left Column - Text Content */}
           <motion.div
@@ -34,13 +35,13 @@ const Hero = () => {
               <div className="absolute top-1/2 -translate-y-1/2 -left-[2px] w-[5px] h-[5px] rounded-full bg-[#00df8f] shadow-[0_0_10px_#00df8f]"></div>
             </div>
 
-            <div className="pl-8">
+            <div className="hero-copy pl-8">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-2 h-2 rounded-full bg-[#00df8f]"></div>
                 <span className="text-[#00df8f] text-sm font-semibold tracking-widest uppercase">UX/UI DESIGNER</span>
               </div>
 
-              <h1 className="text-[3.5rem] md:text-[5rem] lg:text-[6rem] font-display font-bold leading-[0.9] tracking-tighter mb-8">
+              <h1 className="hero-title text-[3.5rem] md:text-[5rem] lg:text-[6rem] font-display font-bold leading-[0.9] tracking-tighter mb-8">
                 <span className="text-white block">DIGITAL</span>
                 <span className="text-transparent block" style={{ WebkitTextStroke: '2px #00df8f' }}>EXPERIENCES<span className="text-[#00df8f]" style={{ WebkitTextStroke: '0px' }}>.</span></span>
               </h1>
@@ -49,7 +50,7 @@ const Hero = () => {
                 I design <span className="text-[#00df8f]">thoughtful digital experiences</span> and collaborate with clients and developers to bring them to life.
               </p>
 
-              <div className="flex flex-wrap gap-4 mb-20">
+              <div className="hero-actions flex flex-wrap gap-4 mb-20">
                 <a href="#work" className="flex items-center gap-4 px-8 py-4 bg-gradient-to-r from-[#00df8f] to-[#00b373] rounded-full font-bold text-[#0d1116] transition-all duration-300 transform hover:scale-105 shadow-[0_0_30px_rgba(0,223,143,0.3)]">
                   View My Work
                   <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
@@ -63,7 +64,7 @@ const Hero = () => {
               </div>
 
               {/* Stats */}
-              <div className="flex flex-wrap gap-12">
+              <div className="hero-stats flex flex-wrap gap-12">
                 <div className="flex items-start gap-4">
                   <div className="p-2 rounded-lg bg-white/5 text-[#00df8f]">
                     <Star className="w-5 h-5" />
@@ -100,7 +101,7 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="relative h-[500px] lg:h-[700px] flex items-center justify-center mt-10 lg:mt-0"
+            className="hero-visual relative h-[500px] lg:h-[700px] flex items-center justify-center mt-10 lg:mt-0"
           >
             {/* Background Glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-[#00df8f] rounded-full blur-[120px] opacity-20 pointer-events-none"></div>
@@ -131,7 +132,7 @@ const Hero = () => {
                 ease: "easeInOut"
               }}
               whileDrag={{ scale: 1.02, cursor: "grabbing" }}
-              className="relative w-[90%] sm:w-full max-w-[460px] aspect-[4/5] z-10 cursor-grab"
+              className="hero-card relative w-[90%] sm:w-full max-w-[460px] aspect-[4/5] z-10 cursor-grab"
               style={{ transformStyle: "preserve-3d" }}
             >
               {/* Lanyard Strip */}
