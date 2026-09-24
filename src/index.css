@@ -221,9 +221,9 @@
 
 html { scroll-behavior: smooth; }
 #about, #work, #services, #contact, .project-screen { scroll-margin-top: 90px; }
-#root { animation: page-enter .26s ease-out both; transition: opacity .19s ease, transform .19s ease; }
-body.page-leaving #root { animation: none; opacity: 0; transform: translateY(8px); }
-@keyframes page-enter { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+#root { animation: page-enter .26s ease-out; transition: opacity .19s ease; }
+body.page-leaving #root { animation: none; opacity: 0; }
+@keyframes page-enter { from { opacity: 0; } to { opacity: 1; } }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   #root { animation: none; transition: none; }
