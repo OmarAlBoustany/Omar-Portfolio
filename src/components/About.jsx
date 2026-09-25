@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const skills = [
   'UI/UX Design', 'Figma', 'Product Collaboration', 'Developer Handoff',
-  'User Research', 'Prototyping', 'Wireframing', 'Design Systems', 'UI/UX Instruction', 'Python'
+  'User Research', 'Prototyping', 'Wireframing', 'Design Systems', 'UI/UX Instruction'
 ];
 
 const About = () => {
@@ -25,13 +25,13 @@ const About = () => {
                 <h2 className="text-sm text-[#00df8f] font-medium tracking-widest uppercase mb-4">About Me</h2>
                 <h3 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-white mb-8">
                   DESIGN MEETS <br />
-                  <span className="text-transparent" style={{ WebkitTextStroke: '1px white' }}>CODE.</span>
+                  <span className="text-transparent" style={{ WebkitTextStroke: '1px white' }}>DELIVERY.</span>
                 </h3>
                 <p className="text-gray-400 text-lg leading-relaxed mb-6">
                   I'm a UI/UX designer and computer science graduate who turns complex requirements into clear, usable products. I work from discovery and user flows through wireframes, prototypes, and design systems, thinking about how each decision will work in the finished experience.
                 </p>
                 <p className="text-gray-400 text-lg leading-relaxed mb-10">
-                  I collaborate with clients and developers, explain the thinking behind my designs, and teach UI/UX. I also use Python to build complete applications, bringing my design thinking into implementation and turning ideas into working experiences.
+                  I collaborate with clients and developers, explain the thinking behind my designs, and teach UI/UX. My computer science background helps me consider how each interaction will work when the product is built.
                 </p>
 
                 <div className="flex items-center gap-8">
